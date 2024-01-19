@@ -63,6 +63,8 @@ func collatzSteps(n int) (steps int) {
 		panic("nonpositive input")
 	}
 
+	const maxInt = int(^uint(0) >> 1)
+
 	for ; n > 1; steps++ {
 		if steps < 0 {
 			panic("too many steps")
@@ -73,7 +75,6 @@ func collatzSteps(n int) (steps int) {
 			continue
 		}
 
-		const maxInt = int(^uint(0) >> 1)
 		if n > (maxInt-1)/3 {
 			panic("overflow")
 		}
